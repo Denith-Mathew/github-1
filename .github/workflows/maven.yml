@@ -19,7 +19,12 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
+      # Run tests before building
+      - name: Run Tests
+        run: mvn -B test
+
       - name: Build with Maven & list target folder
         run: |
           mvn -B package
           ls -lh target
+
